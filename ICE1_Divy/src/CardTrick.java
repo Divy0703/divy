@@ -7,7 +7,7 @@
  * Student Number: 991775606
  * Date Modified: June 2, 2025
  */
-//author divy
+
 import java.util.Scanner;
 
 public class CardTrick {
