@@ -24,8 +24,8 @@ private String holderName;
     }
 
     public static void main(String[] args) {
-        Permit permit1 = new Permit("Alice", PermitCategory.RESIDENTIAL);
-        Permit permit2 = new Permit("Bob", PermitCategory.DIVYAKUMAR_CATEGORY);
+        Permit permit1 = new Permit("Divy", PermitCategory.RESIDENTIAL);
+        Permit permit2 = new Permit("Patel", PermitCategory.DIVYAKUMAR_CATEGORY);
 
 
         permit1.displayPermit();
