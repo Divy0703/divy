@@ -1,20 +1,51 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package permitcategoryrefactor_divyakumar;
 
+import java.util.Scanner;
+
 /**
- *
- * @author divy5
+ * Main class to run the permit system.
+ * @author divy
  */
 public class PermitCategoryRefactor_DIVYAKUMAR {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner scanner = new Scanner(System.in);
+        String permitNumber;
+
+        while (true) {
+            System.out.print("Enter your permit number (format: P1234): ");
+            permitNumber = scanner.nextLine().trim();
+
+            if (permitNumber.matches("P\\d{4}")) {
+                break;
+            } else {
+                System.out.println("Invalid format. Permit number must start with 'P' followed by 4 digits.");
+            }
+        }
+
+        System.out.println("\nSelect a category:");
+        PermitCategory[] categories = PermitCategory.values();
+        for (int i = 0; i < categories.length; i++) {
+            System.out.println((i + 1) + ". " + categories[i]);
+        }
+
+        int choice = 0;
+        while (true) {
+            System.out.print("Enter choice number: ");
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+                if (choice >= 1 && choice <= categories.length) {
+                    break;
+                } else {
+                    System.out.println("Invalid option. Choose a valid number.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a number.");
+            }
+        }
+
+        Permit permit = new Permit(permitNumber, categories[choice - 1]);
+        permit.displayPermit();
+
+        scanner.close();
     }
-    
 }
